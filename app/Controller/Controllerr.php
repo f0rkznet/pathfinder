@@ -156,7 +156,9 @@ class Controller {
                     ));
                     // .. continue with default onSuspect() handler
                     // -> destroy session
-                    return false;
+                    
+                    //bugfix : https://github.com/exodus4d/pathfinder/issues/954
+                    //return false; 
                 };
 
                 new Mysql\Session($db, 'sessions', true, $onSuspect);
