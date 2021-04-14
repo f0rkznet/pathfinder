@@ -396,7 +396,7 @@ class MapModel extends AbstractMapTrackingModel {
         if( !empty($val) ){
             $hosts = [
                 'slack' => ['hooks.slack.com'],
-                'discord' => ['discordapp.com', 'ptb.discordapp.com']
+                'discord' => ['discordapp.com', 'ptb.discordapp.com', 'media.guilded.gg'] //Forced Guilded webhook
             ];
 
             if(
