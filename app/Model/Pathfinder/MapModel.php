@@ -393,20 +393,20 @@ class MapModel extends AbstractMapTrackingModel {
      */
     protected function validate_WebHookURL(string $key, string $val, string $type) : bool {
         $valid = true;
-        if( !empty($val) ){
-            $hosts = [
-                'slack' => ['hooks.slack.com'],
-                'discord' => ['discordapp.com', 'ptb.discordapp.com', 'media.guilded.gg', '10.250.1.3:8888'] //Forced Guilded webhook
-            ];
+        // if( !empty($val) ){
+        //     $hosts = [
+        //         'slack' => ['hooks.slack.com'],
+        //         'discord' => ['discordapp.com', 'ptb.discordapp.com', 'media.guilded.gg', '10.250.1.3:8888'] //Forced Guilded webhook
+        //     ];
 
-            if(
-                !\Audit::instance()->url($val) ||
-                !in_array(parse_url($val, PHP_URL_HOST), $hosts[$type])
-            ){
-                $valid = false;
-                $this->throwValidationException($key);
-            }
-        }
+        //     if(
+        //         !\Audit::instance()->url($val) ||
+        //         !in_array(parse_url($val, PHP_URL_HOST), $hosts[$type])
+        //     ){
+        //         $valid = false;
+        //         $this->throwValidationException($key);
+        //     }
+        // }
         return $valid;
     }
 
