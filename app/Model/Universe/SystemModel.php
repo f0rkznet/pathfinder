@@ -184,6 +184,10 @@ class SystemModel extends AbstractUniverseModel {
      * @return double
      */
     public function set_securityStatus($secStatus){
+        //defining systems for Pochven
+        $pochvenSystems = array(30003503, 30004080, 30004079, 30004078, 30004083, 30005192, 30005193, 30005194, 30005195, 30005205, 
+                                30005200, 30005199, 30005198, 30005015, 30002761, 30002764, 30002765, 30002768, 30002803, 30002805, 
+                                30002791, 30000139, 30000144, 30000142, 30003504, 30002702, 30001372);
         $secStatus = (double)$secStatus;
         // round for trueSec
         $positive = ($secStatus > 0);
@@ -214,6 +218,8 @@ class SystemModel extends AbstractUniverseModel {
                     $security = '0.0';
                 }elseif($trueSec < 0.5){
                     $security = 'L';
+                }elseif(in_array((int)$this->_id, $pochvenSystems, true)){   //check for Pochven System and assign "T" class
+                    $security = 'T';
                 }else{
                     $security = 'H';
                 }
